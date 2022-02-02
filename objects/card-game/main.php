@@ -46,8 +46,8 @@ foreach ($npc->getCards() as $card) {
 }
 
 
-$a = 0;
-while($a < 5) {
+
+while($player->checkCardsOnHand() || $npc->checkCardsOnHand()) {
     sleep(1);
     echo PHP_EOL;
     echo 'PLAYER' . PHP_EOL;
@@ -56,7 +56,7 @@ while($a < 5) {
     foreach ($player->getCards() as $card) {
         echo '[' . $card->getDisplayValue() . ']';
     }
-    //
+
     sleep(1);
     echo PHP_EOL;
     echo 'NPC' . PHP_EOL;
@@ -66,9 +66,11 @@ while($a < 5) {
         echo '[' . $card->getDisplayValue() . ']';
     }
     echo PHP_EOL;
-    $a++;
+
 }
 
+$player->getWinner();
+$npc->getWinner();
 
 echo PHP_EOL;
 

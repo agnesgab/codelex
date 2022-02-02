@@ -54,11 +54,21 @@ class Player {
 
     }
 
+    public function checkCardsOnHand(){
+        if(count($this->cards)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function getWinner(){
         foreach ($this->cards as $card){
             if(in_array($card->getSymbol() == 'J', $this->cards)){
                 echo 'lost';
-                return false;
+            } else {
+                echo 'win';
             }
         }
     }
